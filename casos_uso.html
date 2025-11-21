@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casos de Uso - TOBERT</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .caso-uso {
+            margin: 40px 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            border-left: 4px solid #0066cc;
+        }
+        
+        .caso-uso h2 {
+            color: #0066cc;
+            margin-top: 0;
+            border: none;
+            padding: 0;
+            border-left: none;
+        }
+        
+        .caso-uso table {
+            margin: 20px 0;
+        }
+        
+        .flujo {
+            background-color: white;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        
+        .flujo h3 {
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        
+        .flujo ol {
+            margin-left: 20px;
+        }
+        
+        .flujo li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="wireframe.html">Wireframe</a></li>
+            <li><a href="diagrama_contexto.html">Diagrama de Contexto</a></li>
+            <li><a href="modelo_dominio.html">Modelo de Dominio</a></li>
+            <li><a href="modelo_procesos.html">Modelo de Procesos</a></li>
+            <li><a href="casos_uso.html">Casos de Uso</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>CASOS DE USO</h1>
+        <p>En esta sección se detallan los casos de uso principales del sistema TOBERT, incluyendo actores, precondiciones, postcondiciones y flujos de ejecución.</p>
+
+        <div class="caso-uso">
+            <h2>CU-01: Buscar Actividades de Voluntariado</h2>
+            <table>
+                <tr>
+                    <th style="width: 200px;">Campo</th>
+                    <th>Detalle</th>
+                </tr>
+                <tr>
+                    <td><strong>Actor</strong></td>
+                    <td>Voluntario</td>
+                </tr>
+                <tr>
+                    <td><strong>Precondiciones</strong></td>
+                    <td>Sistema con actividades publicadas</td>
+                </tr>
+                <tr>
+                    <td><strong>Postcondiciones</strong></td>
+                    <td>Lista de actividades filtradas mostrada en pantalla</td>
+                </tr>
+            </table>
+
+            <div class="flujo">
+                <h3>Flujo Básico:</h3>
+                <ol>
+                    <li>Usuario accede a búsqueda</li>
+                    <li>Selecciona filtros (categoría, ubicación, fecha)</li>
+                    <li>Click en "Buscar"</li>
+                    <li>Sistema muestra resultados ordenados por relevancia</li>
+                    <li>Usuario puede ver detalles de cada actividad</li>
+                </ol>
+            </div>
+
+            <div class="flujo">
+                <h3>Flujos Alternativos:</h3>
+                <ul>
+                    <li><strong>FA1:</strong> No hay resultados → mostrar mensaje y sugerir actividades populares</li>
+                    <li><strong>FA2:</strong> Usuario permite geolocalización → pre-llenar ubicación automáticamente</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="caso-uso">
+            <h2>CU-02: Inscribirse en Actividad</h2>
+            <table>
+                <tr>
+                    <th style="width: 200px;">Campo</th>
+                    <th>Detalle</th>
+                </tr>
+                <tr>
+                    <td><strong>Actor</strong></td>
+                    <td>Voluntario autenticado</td>
+                </tr>
+                <tr>
+                    <td><strong>Precondiciones</strong></td>
+                    <td>Usuario logueado, perfil completo, actividad con cupos</td>
+                </tr>
+                <tr>
+                    <td><strong>Postcondiciones</strong></td>
+                    <td>Inscripción creada, cupos reducidos, notificación enviada</td>
+                </tr>
+            </table>
+
+            <div class="flujo">
+                <h3>Flujo Básico:</h3>
+                <ol>
+                    <li>Usuario ve detalle de actividad</li>
+                    <li>Click en "Inscribirme"</li>
+                    <li>Confirma en modal</li>
+                    <li>Sistema valida cupos disponibles</li>
+                    <li>Crea inscripción en BD</li>
+                    <li>Envía email de confirmación</li>
+                    <li>Muestra mensaje de éxito</li>
+                </ol>
+            </div>
+
+            <div class="flujo">
+                <h3>Flujos Alternativos:</h3>
+                <ul>
+                    <li><strong>FA1:</strong> Usuario no logueado → redirigir a login</li>
+                    <li><strong>FA2:</strong> Sin cupos → mostrar "Lista de espera"</li>
+                    <li><strong>FA3:</strong> Perfil incompleto → solicitar completar campos faltantes</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="caso-uso">
+            <h2>CU-03: Generar Reporte de Impacto</h2>
+            <table>
+                <tr>
+                    <th style="width: 200px;">Campo</th>
+                    <th>Detalle</th>
+                </tr>
+                <tr>
+                    <td><strong>Actor</strong></td>
+                    <td>Organización</td>
+                </tr>
+                <tr>
+                    <td><strong>Precondiciones</strong></td>
+                    <td>Organización autenticada, actividades completadas</td>
+                </tr>
+                <tr>
+                    <td><strong>Postcondiciones</strong></td>
+                    <td>PDF generado y descargado</td>
+                </tr>
+            </table>
+
+            <div class="flujo">
+                <h3>Flujo Básico:</h3>
+                <ol>
+                    <li>Organización accede a "Reportes"</li>
+                    <li>Selecciona rango de fechas</li>
+                    <li>Click en "Generar Reporte"</li>
+                    <li>Sistema procesa datos (horas, voluntarios, actividades)</li>
+                    <li>Genera PDF con gráficos</li>
+                    <li>Descarga automática del archivo</li>
+                </ol>
+            </div>
+
+            <div class="flujo">
+                <h3>Flujos Alternativos:</h3>
+                <ul>
+                    <li><strong>FA1:</strong> Sin datos → mensaje "No hay actividades completadas"</li>
+                    <li><strong>FA2:</strong> Reporte muy extenso → enviar por email en 10 min</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="caso-uso">
+            <h2>CU-04: Publicar Actividad</h2>
+            <table>
+                <tr>
+                    <th style="width: 200px;">Campo</th>
+                    <th>Detalle</th>
+                </tr>
+                <tr>
+                    <td><strong>Actor</strong></td>
+                    <td>Organización</td>
+                </tr>
+                <tr>
+                    <td><strong>Precondiciones</strong></td>
+                    <td>Organización autenticada y verificada</td>
+                </tr>
+                <tr>
+                    <td><strong>Postcondiciones</strong></td>
+                    <td>Actividad publicada y visible públicamente</td>
+                </tr>
+            </table>
+
+            <div class="flujo">
+                <h3>Flujo Básico:</h3>
+                <ol>
+                    <li>Organización click en "Nueva Actividad"</li>
+                    <li>Completa formulario (título, fecha, ubicación, cupos)</li>
+                    <li>Sube imagen</li>
+                    <li>Click en "Publicar"</li>
+                    <li>Sistema valida campos</li>
+                    <li>Guarda en BD con estado "PUBLICADA"</li>
+                    <li>Notifica a voluntarios con intereses coincidentes</li>
+                </ol>
+            </div>
+
+            <div class="flujo">
+                <h3>Flujos Alternativos:</h3>
+                <ul>
+                    <li><strong>FA1:</strong> Campos vacíos → resaltar errores</li>
+                    <li><strong>FA2:</strong> Imagen muy pesada → solicitar comprimir</li>
+                </ul>
+            </div>
+        </div>
+
+        <a href="index.html" class="back-link">← Volver al Inicio</a>
+    </div>
+</body>
+</html>
+
