@@ -4,21 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tobert - Portada del Proyecto</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 20px;
-            text-align: center;
-        }
-
         .portada {
             background-color: white;
             border: 2px solid #333;
             padding: 40px;
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto;
+            text-align: center;
         }
 
         .titulo {
@@ -63,42 +57,145 @@
             font-weight: bold;
             color: #333;
         }
-        /*
-        .fecha {
+
+        .menu-secciones {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #333;
+        }
+
+        .menu-secciones h3 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
             margin-top: 20px;
+        }
+
+        .menu-item {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            text-align: left;
+            transition: background-color 0.3s;
+        }
+
+        .menu-item:hover {
+            background-color: #e9e9e9;
+        }
+
+        .menu-item a {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .menu-item a:hover {
+            text-decoration: underline;
+        }
+
+        .menu-item p {
+            margin-top: 5px;
+            font-size: 0.9em;
             color: #666;
-        } */
+        }
     </style>
 </head>
 <body>
-    <div class="portada">
-        <div class="titulo">TOBERT</div>
-        <div class="subtitulo">Proyecto de Ingeniería de Software</div>
-        
-        <div class="seccion">
-            <h3>Integrantes del Proyecto</h3>
-            <div class="integrantes">
-                <div class="integrante">Tomas Urrego Giraldo</div>
-                <div class="integrante">Albert Higuita Bautista</div>
+    <div class="container">
+        <div class="portada">
+            <div class="titulo">TOBERT</div>
+            <div class="subtitulo">Proyecto de Ingeniería de Software</div>
+            
+            <div class="seccion">
+                <h3>Integrantes del Proyecto</h3>
+                <div class="integrantes">
+                    <div class="integrante">Tomas Urrego Giraldo</div>
+                    <div class="integrante">Albert Higuita Bautista</div>
+                </div>
+            </div>
+
+            <div class="seccion">
+                <h3>Información Académica</h3>
+                <p><strong>Curso:</strong> Ingeniería de Software</p>
+                <p><strong>Docente:</strong> Lora Patiño Gloria Amparo</p>
+            </div>
+
+            <div class="universidad">
+                Corporación Universitaria Remington
+            </div>
+
+            <div class="menu-secciones">
+                <h3>Navegación del Proyecto</h3>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <a href="problema.html">1. Problema</a>
+                        <p>Definición del problema y pregunta de investigación</p>
+                    </div>
+                    <div class="menu-item">
+                        <a href="alcance.html">2. Alcance</a>
+                        <p>Funcionalidades y limitaciones del proyecto</p>
+                    </div>
+                    <div class="menu-item">
+                        <a href="objetivo_general.html">3. Objetivo General</a>
+                        <p>El Gran Sueño - Misión principal</p>
+                    </div>
+                    <div class="menu-item">
+                        <a href="marco_teorico.html">4. Marco Teórico</a>
+                        <p>Fundamentos teóricos del proyecto</p>
+                    </div>
+                    <div class="menu-item">
+                        <a href="estado_del_arte.html">5. Estado del Arte</a>
+                        <p>Análisis comparativo de plataformas existentes</p>
+                    </div>
+                    <div class="menu-item">
+                        <a href="alcance_del_estudio.html">6. Alcance del Estudio</a>
+                        <p>Metodología y objetivos del estudio de campo</p>
+                    </div>
+                    <div class="menu-item">
+                        <a href="resultados_demograficos.html">7. Resultados Demográficos</a>
+                        <p>Análisis de datos demográficos de la encuesta</p>
+                    </div>
+                    <div class="menu-item">
+                        <a href="resultados_porcentajes.html">8. Resultados en Porcentajes</a>
+                        <p>Resultados de preguntas Likert y opción múltiple</p>
+                    </div>
+                    <div class="menu-item">
+                        <a href="matriz_frecuencia.html">9. Matriz de Frecuencia vs Impactos</a>
+                        <p>Análisis de priorización de problemas</p>
+                    </div>
+                    <div class="menu-item">
+                        <a href="validacion_brechas.html">10. Validación de Brechas</a>
+                        <p>Confirmación de brechas del estado del arte</p>
+                    </div>
+                    <div class="menu-item">
+                        <a href="nuevas_funcionalidades.html">11. Nuevas Funcionalidades</a>
+                        <p>Funcionalidades adicionales detectadas</p>
+                    </div>
+                    <div class="menu-item">
+                        <a href="segmentacion_demografia.html">12. Segmentación por Demografía</a>
+                        <p>Análisis de patrones por grupo de edad</p>
+                    </div>
+                    <div class="menu-item">
+                        <a href="historias_usuario.html">13. Historias de Usuario</a>
+                        <p>Requisitos expresados como historias de usuario</p>
+                    </div>
+                    <div class="menu-item">
+                        <a href="requisitos_funcionales.html">14. Requisitos Funcionales</a>
+                        <p>Especificación técnica de requisitos funcionales</p>
+                    </div>
+                    <div class="menu-item">
+                        <a href="requisitos_no_funcionales.html">15. Requisitos No Funcionales</a>
+                        <p>Requisitos de calidad, seguridad y rendimiento</p>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="seccion">
-            <h3>Información Académica</h3>
-            <p><strong>Curso:</strong> Ingeniería de Software</p>
-            <p><strong>Docente:</strong> Lora Patiño Gloria Amparo</p>
-        </div>
-
-        <div class="universidad">
-            Corporación Universitaria Remington
-        </div>
-        <!--
-        <div class="fecha">
-            <script>
-                document.write(new Date().toLocaleDateString('es-ES'));
-            </script>
-        </div>
-        -->
     </div>
 </body>
 </html>

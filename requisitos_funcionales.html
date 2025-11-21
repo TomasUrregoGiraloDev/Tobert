@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requisitos Funcionales - TOBERT</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="historias_usuario.html">Historias de Usuario</a></li>
+            <li><a href="requisitos_funcionales.html">Requisitos Funcionales</a></li>
+            <li><a href="requisitos_no_funcionales.html">Requisitos No Funcionales</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>REQUISITOS FUNCIONALES</h1>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre del Requisito</th>
+                        <th>Descripción (Técnica)</th>
+                        <th>Usuario</th>
+                        <th>Historias de Usuario Relacionadas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>RF01</td>
+                        <td>Módulo de Registro de Usuarios</td>
+                        <td>El sistema debe implementar la función de alta de usuario (Sign Up), capturando los datos mínimos necesarios para diferenciar roles.</td>
+                        <td>Voluntario / Organización</td>
+                        <td>HU01</td>
+                    </tr>
+                    <tr>
+                        <td>RF02</td>
+                        <td>Validación de Datos de Perfil</td>
+                        <td>Se requiere una función de validación de campos obligatorios en el perfil para garantizar la calidad y completitud de los datos post-registro.</td>
+                        <td>Voluntario / Organización</td>
+                        <td>HU02</td>
+                    </tr>
+                    <tr>
+                        <td>RF03</td>
+                        <td>Módulo de Autenticación Segura</td>
+                        <td>Implementación de un proceso de Inicio/Cierre de Sesión (Log In/Out), utilizando protocolos seguros (JWT/OAuth) para validar credenciales.</td>
+                        <td>Voluntario / Organización</td>
+                        <td>HU03</td>
+                    </tr>
+                    <tr>
+                        <td>RF04</td>
+                        <td>Generación de Reportes Automáticos</td>
+                        <td>El sistema debe procesar datos de las actividades finalizadas y exponer una interfaz para la descarga automática de informes resumidos (ej. PDF/CSV).</td>
+                        <td>Organización</td>
+                        <td>HU04</td>
+                    </tr>
+                    <tr>
+                        <td>RF05</td>
+                        <td>Función de Geolocalización y Búsqueda</td>
+                        <td>Debe permitir la consulta de actividades en tiempo real utilizando la ubicación actual del usuario como parámetro principal de búsqueda.</td>
+                        <td>Voluntario</td>
+                        <td>HU05</td>
+                    </tr>
+                    <tr>
+                        <td>RF06</td>
+                        <td>Módulo de Filtrado por Taxonomía</td>
+                        <td>Se requiere la capacidad de refinar los resultados de búsqueda mediante una estructura categórica (taxonomía) basada en los intereses de voluntariado.</td>
+                        <td>Voluntario</td>
+                        <td>HU06</td>
+                    </tr>
+                    <tr>
+                        <td>RF07</td>
+                        <td>Motor de Recomendación de Contenido</td>
+                        <td>Implementación de un algoritmo de matching que sugiera actividades basándose en el historial de navegación y los intereses previamente declarados.</td>
+                        <td>Voluntario</td>
+                        <td>HU07</td>
+                    </tr>
+                    <tr>
+                        <td>RF08</td>
+                        <td>Interfaz de Creación de Actividades</td>
+                        <td>Diseño de un formulario estructurado que permita a las Organizaciones ingresar todos los metadatos necesarios para definir una actividad presencial.</td>
+                        <td>Organización</td>
+                        <td>HU08</td>
+                    </tr>
+                    <tr>
+                        <td>RF09</td>
+                        <td>Panel de Control de Contenido (CRUD)</td>
+                        <td>Módulo para que la Organización pueda consultar, editar o eliminar (CRUD) las actividades que ha publicado en la plataforma.</td>
+                        <td>Organización</td>
+                        <td>HU09</td>
+                    </tr>
+                    <tr>
+                        <td>RF10</td>
+                        <td>Módulo de Guías y Asistencia (Onboarding)</td>
+                        <td>El sistema debe ofrecer un flujo de onboarding o tutoriales interactivos que expliquen el uso de las funciones principales de la plataforma.</td>
+                        <td>Voluntario</td>
+                        <td>HU10</td>
+                    </tr>
+                    <tr>
+                        <td>RF11</td>
+                        <td>Sistema de Notificaciones Transaccionales</td>
+                        <td>Se requiere el envío automatizado de un mensaje de confirmación (e-mail/in-app) tras la correcta inscripción del voluntario en un evento.</td>
+                        <td>Voluntario</td>
+                        <td>HU11</td>
+                    </tr>
+                    <tr>
+                        <td>RF12</td>
+                        <td>Historial de Participación del Usuario</td>
+                        <td>Debe visualizar un registro cronológico de todas las actividades en las que el voluntario se ha inscrito y/o ha participado.</td>
+                        <td>Voluntario</td>
+                        <td>HU12</td>
+                    </tr>
+                    <tr>
+                        <td>RF13</td>
+                        <td>Alertas y Sincronización de Calendario</td>
+                        <td>La plataforma debe ofrecer la opción de sincronizar los eventos inscritos con un calendario personal (iCal o Google Calendar).</td>
+                        <td>Voluntario</td>
+                        <td>HU13</td>
+                    </tr>
+                    <tr>
+                        <td>RF14</td>
+                        <td>Módulo de Carga Multimedia</td>
+                        <td>Implementación de una función para subir archivos (imágenes/videos) asociados a la finalización de una actividad.</td>
+                        <td>Voluntario</td>
+                        <td>HU14</td>
+                    </tr>
+                    <tr>
+                        <td>RF15</td>
+                        <td>Submódulo de Micro-Reportes</td>
+                        <td>Se requiere un campo de texto con límite de caracteres para que el voluntario pueda escribir una breve reseña de su experiencia.</td>
+                        <td>Voluntario</td>
+                        <td>HU15</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <a href="index.html" class="back-link">← Volver al Inicio</a>
+    </div>
+</body>
+</html>
+

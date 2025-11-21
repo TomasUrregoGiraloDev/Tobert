@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requisitos No Funcionales - TOBERT</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="historias_usuario.html">Historias de Usuario</a></li>
+            <li><a href="requisitos_funcionales.html">Requisitos Funcionales</a></li>
+            <li><a href="requisitos_no_funcionales.html">Requisitos No Funcionales</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>REQUISITOS NO FUNCIONALES</h1>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Categoría</th>
+                        <th>RNF (Lenguaje Técnico)</th>
+                        <th>Justificación (Necesidad Implícita del HU)</th>
+                        <th>Historias de Usuario Implícitas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Seguridad</td>
+                        <td>Confidencialidad de Datos. Los datos de registro deben ser cifrados en reposo (at rest) para proteger la identidad del usuario.</td>
+                        <td>La confianza empieza con la protección de la información inicial.</td>
+                        <td>HU01</td>
+                    </tr>
+                    <tr>
+                        <td>Datos</td>
+                        <td>Integridad Referencial. Debe implementarse un mecanismo de validación estricta para asegurar que los campos esenciales del perfil estén completos.</td>
+                        <td>El perfil debe ser fiable para poder ser "mostrado" o usado por el sistema.</td>
+                        <td>HU02</td>
+                    </tr>
+                    <tr>
+                        <td>Seguridad</td>
+                        <td>Robustez de Autenticación. Implementación de mecanismos de mitigación contra ataques de fuerza bruta y rate limiting en el endpoint de inicio de sesión.</td>
+                        <td>Asegura que el acceso al sistema sea fiable y seguro.</td>
+                        <td>HU03</td>
+                    </tr>
+                    <tr>
+                        <td>Rendimiento</td>
+                        <td>Disponibilidad de Servicios de Reporte. El servicio de procesamiento de datos para reportes debe tener una disponibilidad mínima del 99.9% (tres nueves).</td>
+                        <td>La organización necesita absoluta fiabilidad para obtener sus métricas en cualquier momento.</td>
+                        <td>HU04</td>
+                    </tr>
+                    <tr>
+                        <td>Rendimiento</td>
+                        <td>Latencia de Búsqueda Geográfica. El tiempo de respuesta para las consultas de búsqueda basada en geolocalización no debe superar los 1.5 segundos.</td>
+                        <td>La inmediatez en los resultados es clave para la usabilidad.</td>
+                        <td>HU05</td>
+                    </tr>
+                    <tr>
+                        <td>Usabilidad</td>
+                        <td>Precisión Semántica del Filtrado. El sistema debe asegurar que los resultados de filtrado coincidan exactamente con la categoría de interés seleccionada.</td>
+                        <td>La calidad del resultado es vital para la motivación del usuario.</td>
+                        <td>HU06</td>
+                    </tr>
+                    <tr>
+                        <td>Escalabilidad</td>
+                        <td>Capacidad del Algoritmo. El motor de recomendación debe ser capaz de procesar hasta 10,000 perfiles de usuario en paralelo manteniendo la calidad del matching.</td>
+                        <td>Preparación para el crecimiento masivo del sistema.</td>
+                        <td>HU07</td>
+                    </tr>
+                    <tr>
+                        <td>Usabilidad</td>
+                        <td>Consistencia de Interfaz de Publicación. El flujo de creación de actividades debe ser uniforme y guiado, minimizando errores por parte de la Organización.</td>
+                        <td>Facilita la adopción de la plataforma por parte de las organizaciones.</td>
+                        <td>HU08</td>
+                    </tr>
+                    <tr>
+                        <td>Seguridad</td>
+                        <td>Control de Acceso (RBAC). El sistema debe aplicar reglas de autorización estricta para que una Organización solo pueda modificar el contenido que le pertenece.</td>
+                        <td>Asegura la integridad de los datos publicados.</td>
+                        <td>HU09</td>
+                    </tr>
+                    <tr>
+                        <td>Usabilidad</td>
+                        <td>Mínima Fricción de Interacción. El diseño de la plataforma debe priorizar el número mínimo de clics para realizar tareas clave (menor a 4).</td>
+                        <td>Respuesta directa a la HU10: Facilidad de uso para usuarios menos familiarizados con la tecnología.</td>
+                        <td>HU10</td>
+                    </tr>
+                    <tr>
+                        <td>Rendimiento</td>
+                        <td>Tasa de Entrega de Notificaciones. La entrega de correos de confirmación debe tener una tasa de éxito del 99% y una latencia de menos de 30 segundos.</td>
+                        <td>La confirmación debe ser fiable e inmediata para el usuario.</td>
+                        <td>HU11</td>
+                    </tr>
+                    <tr>
+                        <td>Accesibilidad</td>
+                        <td>Diseño Gráfico de Historial. La visualización del historial debe ser clara y contrastada para facilitar la lectura por parte de usuarios con dificultades visuales.</td>
+                        <td>El historial debe ser comprensible y legible para que pueda ser "mostrado".</td>
+                        <td>HU12</td>
+                    </tr>
+                    <tr>
+                        <td>Rendimiento</td>
+                        <td>Precisión de Recordatorios. El servicio de alertas debe garantizar que los recordatorios por correo/notificación se envíen con una desviación máxima de 5 minutos respecto a la hora programada.</td>
+                        <td>La puntualidad es crítica para la asistencia a eventos presenciales.</td>
+                        <td>HU13</td>
+                    </tr>
+                    <tr>
+                        <td>Rendimiento</td>
+                        <td>Rendimiento de Carga de Archivos. El tiempo de subida de imágenes/videos (hasta 5MB) debe ser menor a 5 segundos para evitar el abandono del flujo.</td>
+                        <td>La subida rápida es clave para que el usuario complete su reporte.</td>
+                        <td>HU14</td>
+                    </tr>
+                    <tr>
+                        <td>Mantenibilidad</td>
+                        <td>Modularidad de Módulos Nuevos. El módulo de micro-reportes debe ser autocontenido y desacoplado para facilitar futuras actualizaciones o reemplazos.</td>
+                        <td>Simplifica el mantenimiento del código de esta nueva funcionalidad.</td>
+                        <td>HU15</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <a href="index.html" class="back-link">← Volver al Inicio</a>
+    </div>
+</body>
+</html>
+
