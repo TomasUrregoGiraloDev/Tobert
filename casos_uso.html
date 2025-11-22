@@ -235,6 +235,261 @@
             </div>
         </div>
 
+        <div class="caso-uso">
+            <h2>CU-05: Ver Mis Inscripciones</h2>
+            <table>
+                <tr>
+                    <th style="width: 200px;">Campo</th>
+                    <th>Detalle</th>
+                </tr>
+                <tr>
+                    <td><strong>Actor</strong></td>
+                    <td>Voluntario autenticado</td>
+                </tr>
+                <tr>
+                    <td><strong>Precondiciones</strong></td>
+                    <td>Usuario logueado, al menos una inscripción registrada</td>
+                </tr>
+                <tr>
+                    <td><strong>Postcondiciones</strong></td>
+                    <td>Lista de inscripciones mostrada con sus estados</td>
+                </tr>
+            </table>
+
+            <div class="flujo">
+                <h3>Flujo Básico:</h3>
+                <ol>
+                    <li>Usuario accede a "Mis Inscripciones"</li>
+                    <li>Sistema consulta inscripciones del usuario</li>
+                    <li>Sistema muestra lista con: actividad, fecha, estado, organización</li>
+                    <li>Usuario puede ver detalles de cada inscripción</li>
+                    <li>Usuario puede cancelar inscripciones pendientes</li>
+                </ol>
+            </div>
+
+            <div class="flujo">
+                <h3>Flujos Alternativos:</h3>
+                <ul>
+                    <li><strong>FA1:</strong> Sin inscripciones → mostrar mensaje "Aún no te has inscrito en actividades" + botón "Buscar actividades"</li>
+                    <li><strong>FA2:</strong> Actividad ya finalizada → mostrar opción "Calificar experiencia"</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="caso-uso">
+            <h2>CU-06: Calificar Actividad</h2>
+            <table>
+                <tr>
+                    <th style="width: 200px;">Campo</th>
+                    <th>Detalle</th>
+                </tr>
+                <tr>
+                    <td><strong>Actor</strong></td>
+                    <td>Voluntario autenticado</td>
+                </tr>
+                <tr>
+                    <td><strong>Precondiciones</strong></td>
+                    <td>Usuario asistió a actividad (estado "COMPLETADA")</td>
+                </tr>
+                <tr>
+                    <td><strong>Postcondiciones</strong></td>
+                    <td>Calificación guardada, promedio de organización actualizado</td>
+                </tr>
+            </table>
+
+            <div class="flujo">
+                <h3>Flujo Básico:</h3>
+                <ol>
+                    <li>Usuario selecciona actividad completada</li>
+                    <li>Click en "Calificar experiencia"</li>
+                    <li>Sistema muestra formulario: estrellas (1-5) + comentario opcional</li>
+                    <li>Usuario ingresa calificación y comentario</li>
+                    <li>Click en "Enviar"</li>
+                    <li>Sistema guarda calificación en BD</li>
+                    <li>Actualiza rating promedio de la organización</li>
+                </ol>
+            </div>
+
+            <div class="flujo">
+                <h3>Flujos Alternativos:</h3>
+                <ul>
+                    <li><strong>FA1:</strong> Ya calificó previamente → mostrar mensaje "Ya calificaste esta actividad"</li>
+                    <li><strong>FA2:</strong> Comentario con palabras ofensivas → solicitar modificar</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="caso-uso">
+            <h2>CU-07: Gestionar Inscritos (Organización)</h2>
+            <table>
+                <tr>
+                    <th style="width: 200px;">Campo</th>
+                    <th>Detalle</th>
+                </tr>
+                <tr>
+                    <td><strong>Actor</strong></td>
+                    <td>Organización autenticada</td>
+                </tr>
+                <tr>
+                    <td><strong>Precondiciones</strong></td>
+                    <td>Actividad con al menos una inscripción</td>
+                </tr>
+                <tr>
+                    <td><strong>Postcondiciones</strong></td>
+                    <td>Lista de inscritos visible, estados actualizados</td>
+                </tr>
+            </table>
+
+            <div class="flujo">
+                <h3>Flujo Básico:</h3>
+                <ol>
+                    <li>Organización accede a una actividad publicada</li>
+                    <li>Click en "Ver inscritos"</li>
+                    <li>Sistema muestra lista con: nombre, email, teléfono, estado</li>
+                    <li>Organización puede marcar asistencia (checkbox)</li>
+                    <li>Click en "Guardar asistencia"</li>
+                    <li>Sistema actualiza estados a "COMPLETADA" o "NO_ASISTIO"</li>
+                </ol>
+            </div>
+
+            <div class="flujo">
+                <h3>Flujos Alternativos:</h3>
+                <ul>
+                    <li><strong>FA1:</strong> Sin inscritos → mostrar mensaje "Aún no hay voluntarios inscritos"</li>
+                    <li><strong>FA2:</strong> Actividad no finalizada → no permitir marcar asistencia</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="caso-uso">
+            <h2>CU-08: Editar Actividad</h2>
+            <table>
+                <tr>
+                    <th style="width: 200px;">Campo</th>
+                    <th>Detalle</th>
+                </tr>
+                <tr>
+                    <td><strong>Actor</strong></td>
+                    <td>Organización autenticada</td>
+                </tr>
+                <tr>
+                    <td><strong>Precondiciones</strong></td>
+                    <td>Actividad en estado "PUBLICADA", no iniciada</td>
+                </tr>
+                <tr>
+                    <td><strong>Postcondiciones</strong></td>
+                    <td>Actividad actualizada, notificaciones enviadas a inscritos</td>
+                </tr>
+            </table>
+
+            <div class="flujo">
+                <h3>Flujo Básico:</h3>
+                <ol>
+                    <li>Organización accede a "Mis Actividades"</li>
+                    <li>Selecciona actividad y click en "Editar"</li>
+                    <li>Modifica campos permitidos (descripción, cupos, fecha)</li>
+                    <li>Click en "Guardar cambios"</li>
+                    <li>Sistema valida cambios</li>
+                    <li>Actualiza registro en BD</li>
+                    <li>Envía notificación a voluntarios inscritos sobre cambios</li>
+                </ol>
+            </div>
+
+            <div class="flujo">
+                <h3>Flujos Alternativos:</h3>
+                <ul>
+                    <li><strong>FA1:</strong> Actividad ya iniciada → solo permitir editar descripción</li>
+                    <li><strong>FA2:</strong> Reducir cupos con inscritos → mostrar advertencia "Tienes más inscritos que cupos nuevos"</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="caso-uso">
+            <h2>CU-09: Cancelar Actividad</h2>
+            <table>
+                <tr>
+                    <th style="width: 200px;">Campo</th>
+                    <th>Detalle</th>
+                </tr>
+                <tr>
+                    <td><strong>Actor</strong></td>
+                    <td>Organización autenticada</td>
+                </tr>
+                <tr>
+                    <td><strong>Precondiciones</strong></td>
+                    <td>Actividad en estado "PUBLICADA"</td>
+                </tr>
+                <tr>
+                    <td><strong>Postcondiciones</strong></td>
+                    <td>Actividad cancelada, voluntarios notificados</td>
+                </tr>
+            </table>
+
+            <div class="flujo">
+                <h3>Flujo Básico:</h3>
+                <ol>
+                    <li>Organización selecciona actividad</li>
+                    <li>Click en "Cancelar actividad"</li>
+                    <li>Sistema muestra modal de confirmación</li>
+                    <li>Organización ingresa motivo de cancelación (obligatorio)</li>
+                    <li>Click en "Confirmar cancelación"</li>
+                    <li>Sistema cambia estado a "CANCELADA"</li>
+                    <li>Envía email a todos los inscritos con el motivo</li>
+                    <li>Libera cupos y actualiza calendario</li>
+                </ol>
+            </div>
+
+            <div class="flujo">
+                <h3>Flujos Alternativos:</h3>
+                <ul>
+                    <li><strong>FA1:</strong> Sin motivo ingresado → no permitir cancelar hasta completar campo</li>
+                    <li><strong>FA2:</strong> Actividad en curso → no permitir cancelación</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="caso-uso">
+            <h2>CU-10: Recibir Notificaciones</h2>
+            <table>
+                <tr>
+                    <th style="width: 200px;">Campo</th>
+                    <th>Detalle</th>
+                </tr>
+                <tr>
+                    <td><strong>Actor</strong></td>
+                    <td>Voluntario autenticado</td>
+                </tr>
+                <tr>
+                    <td><strong>Precondiciones</strong></td>
+                    <td>Usuario con notificaciones habilitadas</td>
+                </tr>
+                <tr>
+                    <td><strong>Postcondiciones</strong></td>
+                    <td>Notificaciones mostradas en pantalla y/o enviadas por email</td>
+                </tr>
+            </table>
+
+            <div class="flujo">
+                <h3>Flujo Básico:</h3>
+                <ol>
+                    <li>Sistema detecta evento notificable (nueva actividad, cambio, recordatorio)</li>
+                    <li>Sistema consulta preferencias de notificación del usuario</li>
+                    <li>Sistema crea notificación en tabla de BD</li>
+                    <li>Envía notificación push y/o email según preferencias</li>
+                    <li>Usuario accede a campana de notificaciones</li>
+                    <li>Sistema muestra lista de notificaciones ordenadas por fecha</li>
+                </ol>
+            </div>
+
+            <div class="flujo">
+                <h3>Flujos Alternativos:</h3>
+                <ul>
+                    <li><strong>FA1:</strong> Notificaciones deshabilitadas → no enviar</li>
+                    <li><strong>FA2:</strong> Error en servicio de email → reintentar en 10 minutos</li>
+                </ul>
+            </div>
+        </div>
+
         <a href="index.html" class="back-link">← Volver al Inicio</a>
     </div>
 </body>
