@@ -26,113 +26,113 @@
                         <th>ID</th>
                         <th>Nombre del Requisito</th>
                         <th>Descripción (Técnica)</th>
-                        <th>Usuario</th>
-                        <th>Historias de Usuario Relacionadas</th>
+                        <th>Rol</th>
+                        <th>HU Relacionada (Corregida)</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>RF01</td>
-                        <td>Módulo de Registro de Usuarios</td>
-                        <td>El sistema debe implementar la función de alta de usuario (Sign Up), capturando los datos mínimos necesarios para diferenciar roles.</td>
-                        <td>Voluntario / Organización</td>
+                        <td>Motor de Búsqueda y Filtrado Básico</td>
+                        <td>El sistema debe implementar una búsqueda que permita filtrar actividades por categoría, ciudad o zona, y fecha. Los resultados se muestran en una lista filtrada dinámicamente con JavaScript.</td>
+                        <td>Voluntario</td>
                         <td>HU01</td>
                     </tr>
                     <tr>
                         <td>RF02</td>
-                        <td>Validación de Datos de Perfil</td>
-                        <td>Se requiere una función de validación de campos obligatorios en el perfil para garantizar la calidad y completitud de los datos post-registro.</td>
-                        <td>Voluntario / Organización</td>
+                        <td>Módulo de Gestión de Perfil Organizacional y Publicación de Actividades</td>
+                        <td>Se requiere un formulario HTML para que las Organizaciones creen su perfil y otro formulario para publicar actividades con campos básicos (título, ubicación, fecha, cupos). Los datos se guardan en tablas de base de datos relacionales.</td>
+                        <td>Organización</td>
                         <td>HU02</td>
                     </tr>
                     <tr>
                         <td>RF03</td>
-                        <td>Módulo de Autenticación Segura</td>
-                        <td>Implementación de un proceso de Inicio/Cierre de Sesión (Log In/Out), utilizando protocolos seguros (JWT/OAuth) para validar credenciales.</td>
-                        <td>Voluntario / Organización</td>
+                        <td>Sistema de Inscripción Simple</td>
+                        <td>Implementación de un botón "Inscribirme" que al hacer clic registre la relación voluntario-actividad, reste 1 al cupo disponible, y muestre un mensaje de confirmación con alert() o un div de éxito.</td>
+                        <td>Voluntario</td>
                         <td>HU03</td>
                     </tr>
                     <tr>
                         <td>RF04</td>
-                        <td>Generación de Reportes Automáticos</td>
-                        <td>El sistema debe procesar datos de las actividades finalizadas y exponer una interfaz para la descarga automática de informes resumidos (ej. PDF/CSV).</td>
+                        <td>Generador de Reportes Básicos con Consultas SQL</td>
+                        <td>El sistema debe ejecutar consultas SQL simples (COUNT, SUM) para calcular métricas (total de voluntarios, suma de horas, actividades completadas). Los resultados se muestran en HTML con opción de imprimir la página como PDF.</td>
                         <td>Organización</td>
-                        <td>HU04</td>
+                        <td>HU04, HU12</td>
                     </tr>
                     <tr>
                         <td>RF05</td>
-                        <td>Función de Geolocalización y Búsqueda</td>
-                        <td>Debe permitir la consulta de actividades en tiempo real utilizando la ubicación actual del usuario como parámetro principal de búsqueda.</td>
+                        <td>Vista de Lista de Eventos Inscritos</td>
+                        <td>Debe implementarse una página que haga una consulta SQL JOIN entre las tablas de voluntarios, inscripciones y actividades para mostrar todas las actividades en las que el voluntario está inscrito.</td>
                         <td>Voluntario</td>
                         <td>HU05</td>
                     </tr>
                     <tr>
                         <td>RF06</td>
-                        <td>Módulo de Filtrado por Taxonomía</td>
-                        <td>Se requiere la capacidad de refinar los resultados de búsqueda mediante una estructura categórica (taxonomía) basada en los intereses de voluntariado.</td>
-                        <td>Voluntario</td>
+                        <td>Módulo de Aprobación Manual de Solicitudes</td>
+                        <td>Se requiere una página para la Organización que liste todas las solicitudes con estado "pendiente", y botones "Aceptar" o "Rechazar" que ejecuten un UPDATE cambiando el estado.</td>
+                        <td>Organización</td>
                         <td>HU06</td>
                     </tr>
                     <tr>
                         <td>RF07</td>
-                        <td>Motor de Recomendación de Contenido</td>
-                        <td>Implementación de un algoritmo de matching que sugiera actividades basándose en el historial de navegación y los intereses previamente declarados.</td>
+                        <td>Sistema de Notificaciones por Email Básico</td>
+                        <td>Implementación de envío de emails simples usando una librería que envíe un correo automático al voluntario cuando: se inscriba, haya un cambio en la actividad, o se publique una nueva actividad en su zona.</td>
                         <td>Voluntario</td>
                         <td>HU07</td>
                     </tr>
                     <tr>
                         <td>RF08</td>
-                        <td>Interfaz de Creación de Actividades</td>
-                        <td>Diseño de un formulario estructurado que permita a las Organizaciones ingresar todos los metadatos necesarios para definir una actividad presencial.</td>
+                        <td>Herramienta de Envío de Mensajes Grupal Simple</td>
+                        <td>El sistema debe permitir a las Organizaciones seleccionar un grupo de voluntarios (por ejemplo, todos los inscritos a una actividad), escribir un mensaje, y enviar un email a cada uno usando un loop simple.</td>
                         <td>Organización</td>
                         <td>HU08</td>
                     </tr>
                     <tr>
                         <td>RF09</td>
-                        <td>Panel de Control de Contenido (CRUD)</td>
-                        <td>Módulo para que la Organización pueda consultar, editar o eliminar (CRUD) las actividades que ha publicado en la plataforma.</td>
-                        <td>Organización</td>
+                        <td>Sistema de Comentarios Simple</td>
+                        <td>Se requiere un formulario donde los voluntarios escriban un comentario, seleccionen una calificación de 1-5 estrellas, y opcionalmente suban una imagen. Los datos se guardan y se muestran en la página de detalle de cada actividad.</td>
+                        <td>Voluntario</td>
                         <td>HU09</td>
                     </tr>
                     <tr>
                         <td>RF10</td>
-                        <td>Módulo de Guías y Asistencia (Onboarding)</td>
-                        <td>El sistema debe ofrecer un flujo de onboarding o tutoriales interactivos que expliquen el uso de las funciones principales de la plataforma.</td>
-                        <td>Voluntario</td>
+                        <td>Módulo de Registro Simplificado con Validación Básica</td>
+                        <td>El sistema debe ofrecer un formulario de registro (nombre, email, contraseña, tipo de usuario) con validación HTML5 básica, y una página de bienvenida simple que explique cómo usar la plataforma.</td>
+                        <td>Usuario</td>
                         <td>HU10</td>
                     </tr>
                     <tr>
                         <td>RF11</td>
-                        <td>Sistema de Notificaciones Transaccionales</td>
-                        <td>Se requiere el envío automatizado de un mensaje de confirmación (e-mail/in-app) tras la correcta inscripción del voluntario en un evento.</td>
+                        <td>Sistema de Avisos por Email de Nuevas Actividades</td>
+                        <td>El voluntario puede marcar intereses. Cuando una organización publica una actividad, el sistema busca voluntarios con intereses coincidentes y les envía un email automático.</td>
                         <td>Voluntario</td>
                         <td>HU11</td>
                     </tr>
                     <tr>
                         <td>RF12</td>
-                        <td>Historial de Participación del Usuario</td>
-                        <td>Debe visualizar un registro cronológico de todas las actividades en las que el voluntario se ha inscrito y/o ha participado.</td>
-                        <td>Voluntario</td>
+                        <td>Página de Estadísticas Básicas para Organizaciones</td>
+                        <td>La plataforma debe proporcionar una página que ejecute consultas SQL agregadas para mostrar: total de horas de voluntariado, número de inscritos vs asistentes, y promedio de calificación.</td>
+                        <td>Organización</td>
                         <td>HU12</td>
                     </tr>
                     <tr>
                         <td>RF13</td>
-                        <td>Alertas y Sincronización de Calendario</td>
-                        <td>La plataforma debe ofrecer la opción de sincronizar los eventos inscritos con un calendario personal (iCal o Google Calendar).</td>
+                        <td>Perfil de Voluntario con Lista de Actividades Completadas</td>
+                        <td>Se requiere una página de perfil que haga una consulta SQL JOIN para listar todas las actividades en las que el voluntario participó (estado='completado'), mostrando detalles y horas contribuidas.</td>
                         <td>Voluntario</td>
                         <td>HU13</td>
                     </tr>
                     <tr>
                         <td>RF14</td>
-                        <td>Módulo de Carga Multimedia</td>
-                        <td>Implementación de una función para subir archivos (imágenes/videos) asociados a la finalización de una actividad.</td>
-                        <td>Voluntario</td>
+                        <td>Función de Pausa Simple de Perfil</td>
+                        <td>El sistema debe tener un botón en el perfil de la organización que cambie un campo booleano "activo" de true a false. El código debe ocultar las actividades de esa organización en las búsquedas.</td>
+                        <td>Organización</td>
                         <td>HU14</td>
                     </tr>
                     <tr>
                         <td>RF15</td>
-                        <td>Submódulo de Micro-Reportes</td>
-                        <td>Se requiere un campo de texto con límite de caracteres para que el voluntario pueda escribir una breve reseña de su experiencia.</td>
+                        <td>Sistema de Mensajes Directos Básico</td>
+                        <td>Implementación de un formulario simple donde el voluntario escribe un mensaje dirigido a la organización de una actividad específica. El mensaje se guarda en una tabla "mensajes" con campos de vinculación.</td>
                         <td>Voluntario</td>
                         <td>HU15</td>
                     </tr>
